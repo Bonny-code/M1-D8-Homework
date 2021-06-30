@@ -4,21 +4,19 @@
       /* EXERCISE 1
       Write a function for changing the title of the document in something else.
       */
-      let h1 = document.querySelector("h1")
-      const changeTitle = function (e) {
-        e.preventDefaults()
-        h1.innerHTML = "This is changed"
-      };
-     
-       h1.addEventListener("click",changeTitle)
+     const changeTitle = function(newTitle){
+         let newName = document.querySelector("h1")
+         newName.innerHTML = newTitle
+     }
 
       /* EXERCISE 2
       Write a function for changing the class of the title of the page in "myHeading".
       */
 
       const addClassToTitle = function () {
-        let newHeading = document.getElementsByClassName("heading")
-        newHeading.innerHTML = "new-class"
+        let newHeading = document.getElementsByTagName("h1")
+        console.log(newHeading[0])
+        newHeading[0].className ='myHeading'
       };
 
       /* EXERCISE 3
@@ -35,8 +33,11 @@
       */
 
       const changeUrls = function () {
-        //
+        let anchor = document.getElementsByTagName("a")
+        for (var i = 0; i < anchors.length; i++) {
+        anchors[i].href = "https://www.google.com" + anchors[i].href
       };
+    }
 
       /* EXERCISE 5
        Write a function for adding a new item in the second list.
@@ -98,12 +99,16 @@
       */
 
       window.onload = function () {
-        //
-      };
+          changeTitle('my new title')
+          addClassToTitle()
+    }
 
       /* EXERCISE 13
       Use HTML5 tags to divide the content of the page in a more semantic way.
+
       */
+
+
     </script>
 
     <style>
@@ -140,7 +145,7 @@
       </div>
 
       <div>
-        <input type="text" id="input-field" placeholder="input field for the exercise">
+        <input type="text" id="input-field" placeholder="input field for the exercise"/>
       </div>
     </main>
 
