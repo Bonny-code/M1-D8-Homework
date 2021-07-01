@@ -8,99 +8,127 @@
          let newName = document.querySelector("h1")
          newName.innerHTML = newTitle
      }
+     window.onload = function () {
+          changeTitle('my new title')
+          addClassToTitle()
+    }
+
 
       /* EXERCISE 2
       Write a function for changing the class of the title of the page in "myHeading".
       */
 
       const addClassToTitle = function () {
-        let newHeading = document.getElementsByTagName("h1")
-        console.log(newHeading[0])
-        newHeading[0].className ='myHeading'
+        const title = document.querySelector("h1")
+        title.classList.add("myHeading")
       };
+      addClassToTitle();
 
       /* EXERCISE 3
       Write a function for changing the text of only the p which are children of a div.
       */
 
       const changePcontent = function () {
-        let newGra = document.getElementsByClassName(".new-para")[0]
-        newPara.innerText = "I am Big Fish"
+        const paragraph = document.querySelector("div")
+        paragraph.forEach((p) => {
+          p.innerText = "new-text";
+        });
       };
-
+changePcontent();
       /* EXERCISE 4
       Write a function for changing the destination of every link to https://www.google.com
       */
 
       const changeUrls = function () {
-        let anchor = document.getElementsByTagName("a")
-        for (var i = 0; i < anchors.length; i++) {
-        anchors[i].href = "https://www.google.com" + anchors[i].href
-      };
+        const links = document.querySelectorAll("a")
+        links.forEach((link) => {
+          links.href ="https://www.google.com"
+        })
     }
+    changeUrls();
 
       /* EXERCISE 5
        Write a function for adding a new item in the second list.
        */
 
-      const addToTheSecond = function (content) {
-        //
-      };
+      const addToTheSecondList = function(content){
+       const ul = document.querySelectorAll("ul")[1]
+       const li = document.createElement("li")
+       li.innerText = "new item"
+      ul.appendChild(li);
 
+      };
+    addToTheSecondList();
       /* EXERCISE 6
       Write a function for adding a second paragraph to the div.
       */
 
       const addParagraph = function (content) {
-        //
-      };
+        const newPara = document.querySelectorAll("div")[0]
+       const p = document.createElement("p")
+       p.innerHTML = "new graph"
+       newPara.appendChild(p)
 
+      };
+      addParagraph();
       /* EXERCISE 7
       Write a function for making the first UL disappear.
       */
 
       const firstUlDisappear = function () {
-        //
-      };
+        const ul = document,querySelectorAll("ul")[0]
+        ul.remove();
 
+      };
+       firstUlDisappear();
       /* EXERCISE 8
       Write a function for making the background of every UL green.
       */
 
       const paintItGreen = function () {
-        //
+        const uls = document.querySelectorAll("ul")
+        ul.forEach(ul => {
+          ul.classList.add("b-ground")
+        })
       };
-
+     paintItGreen();
       /* EXERCISE 9
       Make the heading of the page change color every time the user clicks on it.
       */
 
       const makeItClickable = function () {
-        //
-      };
-
+        const title = document.querySelector("h1")
+        title.addEventListener("click", function(e){
+       e.target.classList.toggle("myHeading")
+        });
+      }
+      makeItClickable();
       /* EXERCISE 10
       Change the footer text with something else when the user clicks on it.
       */
 
       const changeFooterText = function () {
-        //
+        const footer = document.querySelector("footer")
+        footer.addEventListener("click", function(e){
+          event.target.innerText = "text changed"
+        })
       };
-
+    changeFooterText();
       /* EXERCISE 11
       Attach an event listener to the input field in the page for console logging its value just after any keystroke.
       */
 
       const inputField = document.getElementById("input-field");
-      // ...
-
+      document.onkeypress = function(e){
+       console.log(inputField.value)
+      };
+  inputField();
       /* EXERCISE 12
       Create a new welcome alert message when the page successfully loads.
       */
 
       window.onload = function () {
-          changeTitle('my new title')
-          addClassToTitle()
+          alert("welcome")
     }
 
       /* EXERCISE 13
@@ -114,6 +142,9 @@
     <style>
       .myHeading {
         color: red;
+      }
+      .b-ground{
+        background-color: green;
       }
     </style>
   </head>
